@@ -1,16 +1,16 @@
 # Akeso_QA_assignment
 
-# Run Postman collection manually 
-## Prerequisites: 
-1. Postman Installed: Ensure that you have Postman installed on your machine. You can download it from Postman's official website.
-2. Clone the project into the local desktop
+# Task 1 : API Automation - APIs from Rapid APIs :-
 
+## Prerequisites: 
+1. Installed postman on macbook/other PC.
+   
 ## Intial setup the Postman Collection : 
 1. Open the postman 
 2. Click on import button
 3. Click on Choose Files or foledr form local machine
 4. Select the file/folder and click Open.
-5. Your collection should now appear in the Collections tab.
+5. collection appear in the Collections tab.
 
 ## Running Postman Collection :
 1. Go to the Collections tab.
@@ -21,7 +21,7 @@
 ## Check the Results
  - For collection runs, the Collection Runner will display the results of each request after the run completes. 
 
-# Mobile App and API Test Cases and bug document
+# Task 2: Mobile App and API Test Cases and bug document : 
  1. Have Attached "Test cases for Backend APIs and Mobile App.xlsx" sheet , Please review it.
  
 
