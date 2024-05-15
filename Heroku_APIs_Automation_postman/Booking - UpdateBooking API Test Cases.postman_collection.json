@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "89f7895e-12d6-4561-b6ba-dc8f8261a55a",
+		"name": "Booking - UpdateBooking API Test Cases",
+		"description": "Collection of test cases for the UpdateBooking API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8349993",
+		"_collection_link": "https://www.postman.com/winter-spaceship-681846/workspace/testing-assignment/collection/8349993-89f7895e-12d6-4561-b6ba-dc8f8261a55a?action=share&source=collection_link&creator=8349993"
+	},
+	"item": [
+		{
+			"name": "Update booking with valid data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(403);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6825aa5e4306684",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2026-01-01\",\n        \"checkout\": \"2026-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}"
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/1",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update booking with missing fields",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"firstname\" : \"James\" }"
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/1",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update booking with invalid ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"firstname\" : \"James\", \"lastname\" : \"Brown\", \"totalprice\" : 111, \"depositpaid\" : true, \"bookingdates\" : { \"checkin\" : \"2018-01-01\", \"checkout\" : \"2019-01-01\" }, \"additionalneeds\" : \"Breakfast\" }"
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/999",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update booking with invalid data types",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"firstname\" : \"James\", \"lastname\" : \"Brown\", \"totalprice\" : \"111\", \"depositpaid\" : \"true\", \"bookingdates\" : { \"checkin\" : \"2018-01-01\", \"checkout\" : \"2019-01-01\" }, \"additionalneeds\" : \"Breakfast\" }"
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/1",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
